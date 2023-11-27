@@ -849,7 +849,7 @@ void CreateDirectLights (void)
 		if (!intensity)
 			intensity = 300;
 		_color = ValueForKey (e, "_color");
-		if (_color && _color[1])
+		if (_color && _color[0])
 		{
 			sscanf (_color, "%f %f %f", &dl->color[0],&dl->color[1],&dl->color[2]);
 			ColorNormalize (dl->color, dl->color);
