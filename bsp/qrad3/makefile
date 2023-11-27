@@ -7,6 +7,10 @@ EXEBASE = qrad3
 EXE = $(ODIR)/qrad3
 all: $(EXE)
 
+
+_linux:
+	make "LDFLAGS = -m32" "CFLAGS = -m32 -c -O3 -I../../common" "ODIR = linux"
+
 _next:
 	make "CFLAGS = -c -g -I../../common" "ODIR = next"
 	
