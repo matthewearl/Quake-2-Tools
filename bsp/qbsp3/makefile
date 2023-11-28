@@ -7,6 +7,9 @@ EXEBASE = qbsp3
 EXE = $(ODIR)/qbsp3
 all: $(EXE)
 
+_linux:
+	make "LDFLAGS = -m32" "CFLAGS = -m32 -c -g -I../../common -DDOUBLEVEC_T" "ODIR = linux"
+	
 _next:
 	make "CFLAGS = -c -g -I../../common -DDOUBLEVEC_T" "ODIR = next"
 	
