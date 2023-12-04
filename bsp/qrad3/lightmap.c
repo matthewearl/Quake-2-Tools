@@ -426,9 +426,8 @@ void SampleTriangulation (vec3_t point, triangulation_t *trian, vec3_t color)
 		p1 = trian->points[e->p1];
 	
 		VectorSubtract (p1->origin, p0->origin, v1);
-		VectorNormalize (v1, v1);
 		VectorSubtract (point, p0->origin, v2);
-		d = DotProduct (v2, v1);
+		d = DotProduct (v2, v1) / DotProduct(v1, v1);
 		if (d < 0)
 			continue;
 		if (d > 1)
