@@ -7,6 +7,9 @@ EXEBASE = qvis3
 EXE = $(ODIR)/qvis3
 all: $(EXE)
 
+_linux:
+	make "LDFLAGS = -m32 -lm" "CFLAGS = -m32 -c -g -I../../common" "ODIR = linux"
+
 _next:
 	make "CFLAGS = -c -g -I../../common" "ODIR = next"
 	
@@ -33,7 +36,7 @@ install:
 FILES = $(ODIR)/bspfile.o $(ODIR)/cmdlib.o $(ODIR)/mathlib.o $(ODIR)/scriplib.o  $(ODIR)/threads.o $(ODIR)/qvis3.o $(ODIR)/flow.o
 
 $(EXE) : $(FILES)
-	cc -o $(EXE) $(LDFLAGS) $(FILES)
+	cc -o $(EXE) $(LDFLAGS) $(FILES) $(LDFLAGS)
 	
 $(ODIR)/qvis3.o : qvis3.c
 	cc $(CFLAGS) -E $? | tr -d '\015' > /tmp/temp.i
